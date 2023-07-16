@@ -4,9 +4,11 @@ import {
     Box, 
     Button, 
     Container, 
+    IconButton, 
     Stack, 
     styled 
 } from '@mui/material'
+import { Search as SearchIcon, Menu as MenuIcon } from '@mui/icons-material'
 
 
 const Menu = styled(Box)({
@@ -19,7 +21,7 @@ const Menu = styled(Box)({
 
 const MenuItem = styled(Button)({
     fontWeight:"900",
-    fontSize:"15px",
+    fontSize:"12px",
     marginRight:"2px",
 })
 
@@ -43,19 +45,49 @@ const Navbar = () => {
     <Container>
         <AppBar position='static' color='transparent' elevation={1}>
             <Menu>
-                <Stack direction={"row"}>
+                <Stack direction={"row"} flex={1}>
                     <Logo>CodingDevNemoto</Logo>
-                    <Stack direction={"column"}>
-                        <LogoDesc sx={{ marginLeft:1, marginTop:1 }}>
+                    <Stack direction={"column"} sx={{ marginLeft:1, marginTop:1 }}>
+                        <LogoDesc>
                             The Blog
                         </LogoDesc>
                         <LogoDesc>Gates Jouney</LogoDesc>
                     </Stack>
                 </Stack>
 
-                <MenuItem color='inherit' href='/'>Books</MenuItem>
-                <MenuItem color='inherit' href='/'>Videos</MenuItem>
-                <MenuItem color='inherit' href='/'>Year In Review</MenuItem>
+                <Stack direction={"row"} m={2}>
+                    <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Books</MenuItem>
+                    <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Videos</MenuItem>
+                    <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Year In Review</MenuItem>
+                    <Button color='inherit'>Log In</Button>
+                    <MenuItem 
+                        color='inherit' 
+                        sx={{ 
+                            color: '#0049fb', 
+                            border: '1px solid #0049fb',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        SIGN UP
+                    </MenuItem>
+                    <MenuItem 
+                        color='inherit' 
+                        sx={{ 
+                            color: 'green', 
+                            border: '1px solid green',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        CREATE
+                    </MenuItem>
+                </Stack>
+
+                <IconButton size='small' edge="start" color='inherit'>
+                    <SearchIcon sx={{ fontSize: 35 }} />
+                </IconButton>
+                <IconButton size='small' edge="start" color='inherit'>
+                    <MenuIcon sx={{ fontSize: 35 }} />
+                </IconButton>
             </Menu>
         </AppBar>
     </Container>
