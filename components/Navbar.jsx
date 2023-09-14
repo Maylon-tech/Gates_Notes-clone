@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
     AppBar, 
     Box, 
@@ -9,6 +9,7 @@ import {
     styled 
 } from '@mui/material'
 import { Search as SearchIcon, Menu as MenuIcon } from '@mui/icons-material'
+import Register from './Register'
 
 
 const Menu = styled(Box)({
@@ -41,6 +42,11 @@ const LogoDesc = styled(Box)({
 
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
   return (
     <Container>
         <AppBar position='static' color='transparent' elevation={1}>
@@ -56,11 +62,20 @@ const Navbar = () => {
                 </Stack>
 
                 <Stack direction={"row"} m={2}>
+
                     <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Books</MenuItem>
                     <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Videos</MenuItem>
                     <MenuItem sx={{ fontSize: '15px'}} color='inherit' href='/'>Year In Review</MenuItem>
-                    <Button color='inherit'>Log In</Button>
+
+                    <Button 
+                        onClick={handleOpen}
+                        color='inherit'
+                    >
+                        Log In
+                    </Button>
+
                     <MenuItem 
+                    
                         color='inherit' 
                         sx={{ 
                             color: '#0049fb', 
@@ -90,6 +105,9 @@ const Navbar = () => {
                 </IconButton>
             </Menu>
         </AppBar>
+
+        <Register title="Log in" open={open} onClose={handleClose} />
+
     </Container>
   )
 }

@@ -31,7 +31,7 @@ function ScrollTop(props){
     const { children } = props
     const trigger = useScrollTrigger({
         disableHysteresis: false,
-        threshold: 150,
+        threshold: 120,
     })
     return (
         <Fade in={trigger}>
@@ -44,17 +44,28 @@ function ScrollTop(props){
 const NavbarTop = (props) => {
   return (
     <ScrollTop {...props}>
-        <AppBar sx={{
-            position:'fixed', top:'0px', width:'100%', backgroundColor:'black !important'
-        }}>
+        <AppBar 
+            sx={{
+                position:'fixed', 
+                top:'0px', 
+                width:'100%', 
+                backgroundColor:'black !important',
+                p: 2,
+            }}
+        >
             <Menu>
                 <Typography flex={3} variant='h6' component={"div"} sx={{ marginLeft: 3}}>
                     CodingDevNemoto The Blog           
                 </Typography>
                 <Box flex={1}>
-                    <Stack direction={"row"}>
+                    <Stack direction={"row"} sx={{ alignItems: "center"}}>
             
-                        <MenuItem color='inherit' sx={{color:'white', fontWeight:'bold'}}>Log In</MenuItem>
+                        <MenuItem 
+                            color='inherit' 
+                            sx={{ mx: 2, color:'white', fontWeight:'bold'}}
+                        >
+                            Log In
+                        </MenuItem>
                         <MenuItem 
                             color='inherit' 
                             sx={{ 
@@ -62,10 +73,8 @@ const NavbarTop = (props) => {
                                 background:'#0049fb',
                                 textAlign: 'center',                            
                                 fontWeight: 'bold',
-                                fontSize: 11,
-                                marginTop: 2,
-                                height: '50%',
-                                marginRight: '0px'
+                                fontSize: 11,                                
+                                height: '50%',                                                
                             }}
                         >
                             SIGN UP
@@ -76,12 +85,9 @@ const NavbarTop = (props) => {
                                 color: 'white', 
                                 background:'green',
                                 textAlign: 'center',                            
-                                fontWeight: 'bold',
-                               
-                                marginTop: 2,
-                                height: '50%',
-                                
-                                margin: "15px 2px 0px 4px"
+                                fontWeight: 'bold',                        
+                                height: '50%',                                
+                                ml: 2,
                             }}
                         >
                             CREATE
